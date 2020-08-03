@@ -11,7 +11,7 @@ const express 	 = require("express");
 	  methodOverride = require("method-override");
 	  flash		 = require("connect-flash");
 
-const port = process.env.PORT || 3000;
+// const port = process.env.PORT || 3000;
 
 //requiring routes
 const indexRoute 		= require("./Routes/index"),
@@ -57,6 +57,6 @@ app.use(indexRoute);
 app.use("/campgrounds", campgroundsRoute);
 app.use("/campgrounds/:id/comments", commentsRoute);
 
-app.listen(port, function(){
+app.listen(3000, function(){
 	console.log("YelpCamp is cranking")
 })
