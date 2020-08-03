@@ -28,7 +28,7 @@ app.use(flash());
 mongoose.set('useUnifiedTopology', true);
 
 // mongoose.connect("mongodb://localhost:27017/yelp_camp", {useNewUrlParser: true});
-mongoose.connect("mongodb+srv://germcarthief:11Mongonow1@cluster0.rkkiu.mongodb.net/yelp_campc?retryWrites=true&w=majority", {useNewUrlParser: true});
+mongoose.connect("mongodb+srv://germcarthief:11Mongonow1@cluster0.rkkiu.mongodb.net/yelp_camp?retryWrites=true&w=majority", {useNewUrlParser: true});
 
 // PASSPORT CONFIGURATION
 app.use(require('express-session')({
