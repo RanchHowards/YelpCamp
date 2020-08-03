@@ -29,7 +29,7 @@ app.use(flash());
 //this got rid of a Deprication Warning 
 mongoose.set('useUnifiedTopology', true);
 
-// mongoose.connect("mongodb://localhost:27017/yelp_camp", {useNewUrlParser: true});
+mongoose.connect(DATABASEURL, {useNewUrlParser: true});
 mongoose.connect("mongodb+srv://germcarthief:11Mongonow1@cluster0.rkkiu.mongodb.net/yelp_camp?retryWrites=true&w=majority", {useNewUrlParser: true});
 
 // PASSPORT CONFIGURATION
@@ -57,6 +57,6 @@ app.use(indexRoute);
 app.use("/campgrounds", campgroundsRoute);
 app.use("/campgrounds/:id/comments", commentsRoute);
 
-app.listen(3000, function(){
+app.listen(process.env.PORT, process.env.IP, function(){
 	console.log("YelpCamp is cranking")
 })
