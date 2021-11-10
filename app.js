@@ -31,8 +31,7 @@ app.use(flash())
 
 //MONGOOSE SETUP
 
-let dbUrl = process.env.DATABASEURL
-// let dbUrl = process.env.DATABASEURL || 'mongodb://localhost:27017/yelp_camp'
+const dbUrl = process.env.DATABASEURL || 'mongodb://localhost:27017/yelp_camp'
 
 mongoose
   .connect(dbUrl, {
