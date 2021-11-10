@@ -29,18 +29,30 @@ app.use(express.static('public'))
 app.use(methodOverride('_method'))
 app.use(flash())
 
-//this got rid of a Deprication Warning
-mongoose.set('useUnifiedTopology', true)
+//MONGOOSE SETUP
 
 let url = process.env.DATABASEURL || 'mongodb://localhost:27017/yelp_camp'
 
-mongoose.connect(url, { useNewUrlParser: true })
+mongoose
+  .connect(dbUrl, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+  })
+  .then(() => {
+    console.log('connected to DB!!!')
+  })
+  .catch((err) => {
+    console.log('ERROR:', err.message)
+  })
+
+// PASSPORT CONFIGURATION
 
 const SECRET = process.env.SECRET
 
-// PASSPORT CONFIGURATION
 const sessionConfig = {
-  secret: process.env.SECRET,
+  secret: SECRET,
   resave: false,
   saveUninitialized: true, //this was false
   cookie: {
