@@ -12,7 +12,7 @@ seedDB = require('./seed')
 methodOverride = require('method-override')
 flash = require('connect-flash')
 
-require('dotenv').config()
+// require('dotenv').config() //comment this out when pushing to Heroku
 
 const PORT = process.env.PORT || 3000
 
